@@ -1,7 +1,7 @@
 package construct;
 
 import com.google.common.collect.Maps;
-import com.souche.optimus.common.util.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 
@@ -26,7 +26,7 @@ public class CaculatorTest {
     public static Integer caculate(String str) {
         String symbols = "+-*/()";
         
-        if(StringUtil.isEmpty(str)) {
+        if(StringUtils.isEmpty(str)) {
             return null;
         }
         StackTest<Integer> numStack = new StackTest<>();

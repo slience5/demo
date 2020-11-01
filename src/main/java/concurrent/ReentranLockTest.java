@@ -71,9 +71,9 @@ public class ReentranLockTest {
                 synchronized (lock){
                     lock.notify();
                 }
-                System.out.println("worker lock ");
+                System.out.println("worker1 lock ");
                 lock.lock();
-                System.out.println("worker success");
+                System.out.println("worker1 success");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

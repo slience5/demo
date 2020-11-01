@@ -2,12 +2,9 @@ package concurrent;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import com.souche.optimus.cache.CacheService;
-import com.souche.optimus.common.util.StringUtil;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.apache.poi.ss.formula.functions.T;
 
 import java.time.Duration;
 import java.util.concurrent.CancellationException;
@@ -33,20 +30,15 @@ public class CacheUtil{
             .build();
 
     /**
-     * 分布式缓存
-     */
-    private CacheService cacheService;
-
-    /**
      * 计算函数
      */
-    private Compute<Param,T> c;
+    private Compute<Param,Object> c;
 
 
     public <T> T get(String key,Class<T> clazz){
-        if(StringUtil.isEmpty(key)){
-            return null;
-        }
+//        if(StringUtil.isEmpty(key)){
+//            return null;
+//        }
         T t = (T) cache.getIfPresent(key);
         if(t != null){
             System.out.println("命中本地缓存～～～～～～～～·");
@@ -66,7 +58,7 @@ public class CacheUtil{
     }
 
     private void checkAndDeleteTask(String key){
-        Future<T> exist = (Future<T>) tasks.get(key);
+        Future exist = (Future) tasks.get(key);
         if(exist != null){
             tasks.remove(key);
             tags.remove(key);

@@ -1,7 +1,7 @@
 package sort;
 
+import cn.hutool.core.util.HashUtil;
 import com.google.common.collect.Maps;
-import com.souche.optimus.common.util.HashUtil;
 
 import java.util.Map;
 import java.util.UUID;
@@ -14,31 +14,31 @@ import java.util.UUID;
 public class BubberSort {
 
     public static void main(String[] args) throws InterruptedException {
-//        int[] nums = { 3, 1, 3, 5, 0 };
-//        bubberSort(nums);
-//        for (int i : nums) {
-//            System.out.println(i);
-//        }
-        Map<String, Integer> map = Maps.newHashMap();
-        int count = 0;
-        int i = 0;
-       while(i++ < 300) {
-            UUID uuid = UUID.randomUUID();
-            String uuids = HashUtil.convertToHashStr(uuid.getMostSignificantBits(), 5)
-                                    + HashUtil.convertToHashStr(uuid.getMostSignificantBits(), 5);
-           if(map.get(uuids) != null) {
-               System.out.println(count + ":" + uuids);
-           }else {
-               map.put(uuids, 1);
-           }
-           count ++ ;
-           if(299 == i) {
-               Thread.sleep(1000);
-               System.out.println("sleep = " + i);
-               i=0;
-           }
+        int[] nums = { 3, 1, 3, 5, 0 };
+        bubberSort(nums);
+        for (int i : nums) {
+            System.out.println(i);
         }
-       
+//        Map<String, Integer> map = Maps.newHashMap();
+//        int count = 0;
+//        int i = 0;
+//       while(i++ < 300) {
+//            UUID uuid = UUID.randomUUID();
+//            String uuids = HashUtil.convertToHashStr(uuid.getMostSignificantBits(), 5)
+//                                    + HashUtil.convertToHashStr(uuid.getMostSignificantBits(), 5);
+//           if(map.get(uuids) != null) {
+//               System.out.println(count + ":" + uuids);
+//           }else {
+//               map.put(uuids, 1);
+//           }
+//           count ++ ;
+//           if(299 == i) {
+//               Thread.sleep(1000);
+//               System.out.println("sleep = " + i);
+//               i=0;
+//           }
+//        }
+//
        
     }
 
